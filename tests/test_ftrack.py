@@ -37,6 +37,11 @@ class Test_ftrack_openassetio_plugin:
     def test_passes_apiComplianceSuite(self, harness_fixtures):
         assert harness.executeSuite(apiComplianceSuite, harness_fixtures)
 
+    def test_passes_ftrack_business_logic_suite(
+        self, ftrack_business_logic_suite, harness_fixtures
+    ):
+        assert harness.executeSuite(ftrack_business_logic_suite, harness_fixtures)
+
 
 @pytest.fixture(autouse=True)
 def ftrack_plugin_env(base_dir, monkeypatch):
@@ -65,3 +70,9 @@ def base_dir():
     codebase.
     """
     return os.path.dirname(os.path.dirname(__file__))
+
+
+@pytest.fixture
+def ftrack_business_logic_suite(base_dir):
+    module_path = os.path.join(base_dir, "tests", "ftrack_business_logic_suite.py")
+    return harness.moduleFromFile(module_path)
