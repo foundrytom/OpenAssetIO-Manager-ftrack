@@ -41,7 +41,7 @@ class FtrackInterface(ManagerInterface):
         # As we use a simple prefix, allow the OpenAssetIO C++ layer to
         # short-circuit calls into Python for isEntityReferenceString
         # where possible.
-        info = {constants.kField_EntityReferencesMatchPrefix: REFERENCE_PREFIX}
+        info = {constants.kInfoKey_EntityReferencesMatchPrefix: REFERENCE_PREFIX}
         # Add any relevant server info if we have a session.
         if self.__session:
             if "version" in self.__session.server_information:
@@ -59,7 +59,7 @@ class FtrackInterface(ManagerInterface):
         self.__settings.update(managerSettings)
         self.__session = self.__create_session(self.__settings, hostSession)
 
-    def managementPolicy(self, traitSets, context, hostSession):
+    def managementPolicy(self, traitSets, access, context, hostSession):
         # Ignore everything for now
         return [TraitsData() for _ in traitSets]
 

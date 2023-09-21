@@ -9,14 +9,14 @@ Ftrack plugin behaves with the correct business logic.
 
 from unittest import mock
 
-from openassetio.test.manager.harness import FixtureAugmentedTestCase
+from openassetio.test.manager import harness
 
 import ftrack_api
 
 __all__ = []
 
 
-class Test_initialize_credentials(FixtureAugmentedTestCase):
+class Test_initialize_credentials(harness.FixtureAugmentedTestCase):
     """
     Test the handling of settings .vs. env vars for session
     initialization.

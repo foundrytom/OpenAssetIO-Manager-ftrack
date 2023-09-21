@@ -3,7 +3,7 @@
 """
 Manager test harness test case fixtures for the ftrack manager plugin.
 """
-from openassetio.constants import kField_EntityReferencesMatchPrefix
+from openassetio import constants
 
 import ftrack_api
 
@@ -23,7 +23,7 @@ fixtures = {
     "Test_info": {
         "test_matches_fixture": {
             "info": {
-                kField_EntityReferencesMatchPrefix: "ftrack://",
+                constants.kInfoKey_EntityReferencesMatchPrefix: "ftrack://",
                 "version": server_version,
             }
         }
